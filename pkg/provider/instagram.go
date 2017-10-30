@@ -54,7 +54,10 @@ func (i *instagram) Stories() ([]*Media, error) {
 		return nil, err
 	}
 
-	return tray(resp).Media(), nil
+	tray := tray(resp)
+	media := tray.Media()
+
+	return media, nil
 }
 
 func (t *tray) Images() []*Media {
